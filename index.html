@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grammar Practice • Unit 4 (Part 2) + Unit 5</title>
+  <title>Grammar Practice • Unit 4 (Part 2) + Unit 5 (Click Only)</title>
   <style>
     :root{
       --bg:#0f172a;
@@ -14,8 +14,8 @@
       --line:#24324f;
       --good:#22c55e;
       --bad:#ef4444;
-      --warn:#f59e0b;
       --accent:#60a5fa;
+      --warn:#f59e0b;
     }
     *{box-sizing:border-box}
     body{
@@ -128,7 +128,6 @@
     }
     button.smallbtn[disabled]{opacity:.55;cursor:not-allowed}
 
-    /* Tile choice rows (for grammar form selection) */
     .tileRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
     .tileBtn{
       border:1px solid rgba(255,255,255,.14);
@@ -145,7 +144,6 @@
       background: rgba(34,197,94,.18);
     }
 
-    /* Cloze line */
     .clozeLine{
       font-size:16px; line-height:1.6;
       padding:12px 12px;
@@ -162,32 +160,6 @@
       font-weight:600;
     }
 
-    input.textIn{
-      width:min(360px, 100%);
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(31,42,68,.7);
-      color:var(--ink);
-      font-size:15px;
-      outline:none;
-    }
-    input.textIn:focus{ border-color: rgba(96,165,250,.55); }
-
-    .sideBox{display:flex;flex-direction:column;gap:10px}
-    .stat{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:10px 12px;border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(11,18,38,.65);
-      font-size:13px;
-    }
-    .stat b{color:#fff}
-    .list{margin:0;padding-left:18px;color:var(--muted);font-size:12.5px;line-height:1.4}
-    .note{
-      font-size:12.5px;color:var(--muted);line-height:1.4;
-      border-left:3px solid rgba(245,158,11,.55);padding-left:10px;
-    }
     .emojiRow{font-size: 20px; line-height: 1; margin-top: 8px; min-height: 24px}
 
     .done{
@@ -217,7 +189,46 @@
       color: var(--ink);
     }
 
-    /* Inline picture */
+    .twoCol{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    @media (max-width: 620px){ .twoCol{grid-template-columns:1fr} }
+    .matchBox{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(11,18,38,.55);
+      border-radius:12px;
+      padding:10px;
+    }
+    .matchTitle{font-size:12px;color:var(--muted);margin-bottom:8px}
+    .matchItem{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:8px 10px;border-radius:10px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(31,42,68,.45);
+      margin-bottom:8px;
+      gap:10px;
+    }
+    .matchItem:last-child{margin-bottom:0}
+    .matchItem b{font-weight:600}
+    select.matchSel{
+      border-radius:10px;
+      padding:6px 10px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(17,28,51,.65);
+      color: var(--ink);
+      font-size:13px;
+      outline:none;
+      cursor:pointer;
+      min-width: 180px;
+    }
+    select.matchSel:focus{border-color: rgba(96,165,250,.55)}
+    .ok{border-color: rgba(34,197,94,.65)!important}
+    .badBorder{border-color: rgba(239,68,68,.65)!important}
+    .smallNote{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+
     .picWrap{
       border:1px solid rgba(255,255,255,.12);
       background: rgba(11,18,38,.45);
@@ -225,7 +236,6 @@
       padding:10px;
       margin:10px 0 10px;
     }
-    .picHint{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.35}
   </style>
 </head>
 
@@ -237,17 +247,17 @@
       <div>
         <h1>Grammar Practice • Unit 4 (Part 2) + Unit 5</h1>
         <div class="sub">
-          This is a <b>grammar-use</b> review. Read the sentence and choose/type the correct form.<br/>
-          Click <b>Next</b> when you understand.
+          <b>Click-only.</b> No typing. Do each part in order (organized by exercise type).
         </div>
       </div>
     </div>
 
     <div class="meta">
       <div class="pillrow">
+        <div class="pill"><b>Part</b> <span id="partTxt">A</span></div>
         <div class="pill"><b>Progress</b> <span id="progTxt">0/0</span></div>
         <div class="pill"><b>Score</b> <span id="scoreTxt">0</span></div>
-        <div class="pill"><b>Time</b> <span id="timeTxt">08:00</span></div>
+        <div class="pill"><b>Time</b> <span id="timeTxt">10:00</span></div>
       </div>
       <div class="bar"><div id="progBar"></div></div>
     </div>
@@ -275,29 +285,18 @@
       </div>
     </section>
 
-    <aside class="panel sideBox">
-      <h2>Quick Info <span class="tag">U4-2 + U5</span></h2>
+    <aside class="panel">
+      <h2>Structure <span class="tag">Organized</span></h2>
+      <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:12.5px;line-height:1.45">
+        <li><b>Part A</b> — Cloze (click to fill): my/mine, their/theirs, have/has got</li>
+        <li><b>Part B</b> — Same meaning (matching)</li>
+        <li><b>Part C</b> — Apostrophe & ownership: whose vs who’s, ’s = is/has/possessive</li>
+        <li><b>Part D</b> — There is/are: forms, questions, short answers (MCQ)</li>
+        <li><b>Part E</b> — Prepositions + fixed expressions + corner (MCQ + picture MCQ)</li>
+      </ul>
 
-      <div class="stat"><span>Current task</span> <b id="taskTxt">—</b></div>
-      <div class="stat"><span>Correct / Total</span> <b><span id="correctTxt">0</span>/<span id="totalTxt">0</span></b></div>
-
-      <div class="note">
-        <b>How to play:</b><br/>
-        • Choose or type the correct grammar form.<br/>
-        • If wrong: read the clue and try again.<br/>
-        • Click <b>Next</b> only when you understand.
-      </div>
-
-      <div>
-        <div class="tag" style="display:inline-block;margin-bottom:6px;">Grammar focus</div>
-        <ul class="list">
-          <li>Possessive adj vs pronouns: my/mine, her/hers, their/theirs</li>
-          <li>Whose vs Who’s</li>
-          <li>’s meanings: <b>possessive</b> / <b>is</b> / <b>has</b></li>
-          <li>Have/has got (and US-style have/has)</li>
-          <li>There is/are + questions + short answers</li>
-          <li>Prepositions + fixed expressions + corner vs corner</li>
-        </ul>
+      <div style="margin-top:12px;border-left:3px solid rgba(245,158,11,.55);padding-left:10px;color:var(--muted);font-size:12.5px;line-height:1.45">
+        <b>Teacher note:</b> This version is designed to test grammar choice quickly (fast diagnostic).
       </div>
     </aside>
   </main>
@@ -305,9 +304,9 @@
 
 <script>
 (() => {
-  const TOTAL_TIME_SEC = 8 * 60;
+  const TOTAL_TIME_SEC = 10 * 60;
 
-  // ---------- Picture (room) ----------
+  // ---------- Picture ----------
   function getRoomSVG(){
     return `
       <div class="picWrap">
@@ -337,359 +336,11 @@
           <rect x="500" y="166" width="40" height="10" rx="5" fill="rgba(245,158,11,.22)"></rect>
           <text x="500" y="95" font-size="12" fill="rgba(156,163,175,.9)">LAMP</text>
         </svg>
-        <div class="picHint">Use: <b>on</b> (on top) • <b>under</b> (below) • <b>between</b> (in the middle)</div>
       </div>
     `;
   }
 
-  // ---------- Question types ----------
-  // mcq: choose option (grammar choice)
-  // formpick: click correct form tiles (like “my / mine”)
-  // typein: students type the correct word/phrase
-  // cloze: choose from tiles to fill blank
-  // sMeaning: choose meaning of 's (is/has/possessive)
-  // picType: picture + type preposition
-
-  const ITEMS = [
-    // -------- Unit 4 Part 2: Possessives (use, not vocab) --------
-    {
-      id:"u4_form_my_mine",
-      type:"formpick",
-      section:"Unit 4 (Part 2)",
-      qtype:"Choose the correct form",
-      prompt:"Choose the correct word for the blank.",
-      line:"This is ____ book.",
-      options:["my","mine","me","I"],
-      answer:"my",
-      success:"Yes. Before a noun → <b>my</b>.",
-      clue:"If there is a noun after the blank, use <b>my/your/his/her/our/their</b>."
-    },
-    {
-      id:"u4_form_my_mine2",
-      type:"formpick",
-      section:"Unit 4 (Part 2)",
-      qtype:"Choose the correct form",
-      prompt:"Choose the correct word for the blank.",
-      line:"This book is ____.",
-      options:["my","mine","me","I"],
-      answer:"mine",
-      success:"Correct. No noun → <b>mine</b>.",
-      clue:"If there is no noun after the blank, use <b>mine/yours/hers/ours/theirs</b>."
-    },
-    {
-      id:"u4_form_their_theirs",
-      type:"formpick",
-      section:"Unit 4 (Part 2)",
-      qtype:"Choose the correct form",
-      prompt:"Choose the correct word for the blank.",
-      line:"Those are ____ bags.",
-      options:["their","theirs","them","they"],
-      answer:"their",
-      success:"Yes. Before a noun → <b>their</b>.",
-      clue:"Before a noun, use possessive adjective: <b>their</b>."
-    },
-    {
-      id:"u4_form_their_theirs2",
-      type:"formpick",
-      section:"Unit 4 (Part 2)",
-      qtype:"Choose the correct form",
-      prompt:"Choose the correct word for the blank.",
-      line:"Those bags are ____.",
-      options:["their","theirs","them","they"],
-      answer:"theirs",
-      success:"Correct. No noun → <b>theirs</b>.",
-      clue:"No noun after blank → use possessive pronoun: theirs."
-    },
-
-    // Whose / Who’s
-    {
-      id:"u4_whose_whos_type",
-      type:"typein",
-      section:"Unit 4 (Part 2)",
-      qtype:"Type the correct word",
-      prompt:"Type the correct word: <b>Whose</b> or <b>Who’s</b>.",
-      sentence:`_____ pencil is this?`,
-      answer:"whose",
-      accept:["whose"],
-      success:"Correct. <b>Whose</b> asks about ownership.",
-      clue:"Whose = belongs to who. Who’s = who is."
-    },
-
-    // 's meaning: possessive vs is vs has
-    {
-      id:"u4_s_meaning1",
-      type:"mcq",
-      section:"Unit 4 (Part 2)",
-      qtype:"What does ’s mean?",
-      prompt:"In this sentence, what does <b>Tom’s</b> mean?",
-      sentence:"Tom’s backpack is under the chair.",
-      choices:[
-        {t:"Tom owns the backpack (possessive).", ok:true},
-        {t:"Tom is a backpack.", ok:false},
-        {t:"Tom has got (always).", ok:false},
-        {t:"Tom was.", ok:false}
-      ],
-      success:"Correct. Name + ’s + noun → <b>belongs to</b>.",
-      clue:"If ’s is on a name before a noun, it usually means <b>belongs to</b>."
-    },
-    {
-      id:"u4_s_meaning2",
-      type:"mcq",
-      section:"Unit 4 (Part 2)",
-      qtype:"What does ’s mean?",
-      prompt:"In this sentence, what does <b>It’s</b> mean?",
-      sentence:"It’s on the desk.",
-      choices:[
-        {t:"It is", ok:true},
-        {t:"It has", ok:false},
-        {t:"It owns", ok:false},
-        {t:"Its (possessive adjective)", ok:false}
-      ],
-      success:"Yes. It’s = <b>It is</b>.",
-      clue:"It’s (with apostrophe) = It is. Its (no apostrophe) = belonging to it."
-    },
-    {
-      id:"u4_s_meaning3",
-      type:"mcq",
-      section:"Unit 4 (Part 2)",
-      qtype:"What does ’s mean?",
-      prompt:"In this sentence, what does <b>She’s got</b> mean?",
-      sentence:"She’s got a new pencil case.",
-      choices:[
-        {t:"She has got", ok:true},
-        {t:"She is got", ok:false},
-        {t:"She owns got", ok:false},
-        {t:"She was got", ok:false}
-      ],
-      success:"Correct. She’s got = <b>She has got</b>.",
-      clue:"’s got = has got (NOT is)."
-    },
-
-    // Have / has got vs have / has (US)
-    {
-      id:"u4_have_got_transform",
-      type:"cloze",
-      section:"Unit 4 (Part 2)",
-      qtype:"Choose the correct form (meaning = have)",
-      prompt:"Choose the best phrase to complete the sentence.",
-      sentence:"(Same meaning as: I have two brothers.)",
-      line:"I ____ two brothers.",
-      options:["have got","has got","am got","got"],
-      answer:"have got",
-      success:"Yes. I have got… (BrE).",
-      clue:"I/you/we/they → have got. He/she/it → has got."
-    },
-    {
-      id:"u4_us_have_no_got",
-      type:"mcq",
-      section:"Unit 4 (Part 2)",
-      qtype:"US style (no got)",
-      prompt:"In American English, people often say:",
-      sentence:"(Meaning: She has got a bike.)",
-      choices:[
-        {t:"She has a bike.", ok:true},
-        {t:"She is a bike.", ok:false},
-        {t:"She have a bike.", ok:false},
-        {t:"She got a bike (same meaning here).", ok:false}
-      ],
-      success:"Correct. US: <b>has/have</b> is very common (no got).",
-      clue:"US English: have/has (no got) is common: She has a bike."
-    },
-
-    // -------- Unit 5: There is/are + questions + short answers --------
-    {
-      id:"u5_there_is_are_choose",
-      type:"cloze",
-      section:"Unit 5",
-      qtype:"There is / There are",
-      prompt:"Choose the correct phrase.",
-      sentence:"(One thing)",
-      line:"____ a lamp on the desk.",
-      options:["There is","There are"],
-      answer:"There is",
-      success:"Correct. One lamp → <b>There is</b>.",
-      clue:"Singular (one) → There is."
-    },
-    {
-      id:"u5_there_is_are_choose2",
-      type:"cloze",
-      section:"Unit 5",
-      qtype:"There is / There are",
-      prompt:"Choose the correct phrase.",
-      sentence:"(Two things)",
-      line:"____ two books on the chair.",
-      options:["There is","There are"],
-      answer:"There are",
-      success:"Correct. Two books → <b>There are</b>.",
-      clue:"Plural (2+) → There are."
-    },
-    {
-      id:"u5_question_form",
-      type:"formpick",
-      section:"Unit 5",
-      qtype:"Question form",
-      prompt:"Choose the correct start of the question.",
-      line:"____ there any pencils on the desk?",
-      options:["Is","Are","Do","Does"],
-      answer:"Are",
-      success:"Correct. Plural → <b>Are there…?</b>",
-      clue:"Any + plural → Are there…?"
-    },
-    {
-      id:"u5_short_answer_type",
-      type:"typein",
-      section:"Unit 5",
-      qtype:"Short answers",
-      prompt:"Type the correct short answer (use: <b>Yes, there is.</b>)",
-      sentence:"Question: Is there a computer in the classroom?",
-      answer:"yes, there is.",
-      accept:["yes, there is.","yes there is","yes, there is"],
-      success:"Correct. Short answer uses <b>there</b> (not it).",
-      clue:"Short answer pattern: Yes, there is. / No, there isn’t."
-    },
-
-    // Fixed expressions (small set)
-    {
-      id:"u5_fixed_at_school",
-      type:"formpick",
-      section:"Unit 5",
-      qtype:"Fixed expressions",
-      prompt:"Choose the best phrase.",
-      line:"On weekdays, the children are ____.",
-      options:["at school","in school","on school"],
-      answer:"at school",
-      success:"Correct: <b>at school</b>.",
-      clue:"Fixed chunks: at school / at home / at work."
-    },
-    {
-      id:"u5_fixed_in_bed",
-      type:"formpick",
-      section:"Unit 5",
-      qtype:"Fixed expressions",
-      prompt:"Choose the best phrase.",
-      line:"He is sick. He is ____.",
-      options:["in bed","on bed","at bed"],
-      answer:"in bed",
-      success:"Correct: <b>in bed</b>.",
-      clue:"We say in bed (sleeping/resting)."
-    },
-    {
-      id:"u5_fixed_on_left",
-      type:"formpick",
-      section:"Unit 5",
-      qtype:"Fixed expressions",
-      prompt:"Choose the best phrase.",
-      line:"The bank is ____.",
-      options:["on the left","at the left","in the left"],
-      answer:"on the left",
-      success:"Correct: <b>on the left</b>.",
-      clue:"We say on the left / on the right."
-    },
-
-    // In the corner vs on the corner
-    {
-      id:"u5_corner_in",
-      type:"formpick",
-      section:"Unit 5",
-      qtype:"Corner expressions",
-      prompt:"Choose the best phrase.",
-      line:"The chair is ____ of the room.",
-      options:["in the corner","on the corner"],
-      answer:"in the corner",
-      success:"Yes. Inside a room → <b>in the corner</b>.",
-      clue:"Inside a room/space → in the corner."
-    },
-    {
-      id:"u5_corner_on",
-      type:"formpick",
-      section:"Unit 5",
-      qtype:"Corner expressions",
-      prompt:"Choose the best phrase.",
-      line:"The café is ____ of King Street and Park Road.",
-      options:["on the corner","in the corner"],
-      answer:"on the corner",
-      success:"Correct. Street corner → <b>on the corner</b>.",
-      clue:"Street intersection → on the corner."
-    },
-
-    // Picture + type prepositions (more “use”)
-    {
-      id:"u5_pic_type1",
-      type:"picType",
-      section:"Unit 5",
-      qtype:"Prepositions (type)",
-      prompt:"Look at the picture. Type ONE word.",
-      sentence:"The bag is ____ the chair.",
-      pic:true,
-      answer:"under",
-      accept:["under"],
-      success:"Correct: under.",
-      clue:"Under = below."
-    },
-    {
-      id:"u5_pic_type2",
-      type:"picType",
-      section:"Unit 5",
-      qtype:"Prepositions (type)",
-      prompt:"Look at the picture. Type ONE word.",
-      sentence:"The book is ____ the desk.",
-      pic:true,
-      answer:"on",
-      accept:["on"],
-      success:"Correct: on.",
-      clue:"On = on top."
-    },
-    {
-      id:"u5_pic_type3",
-      type:"picType",
-      section:"Unit 5",
-      qtype:"Prepositions (type)",
-      prompt:"Look at the picture. Type ONE word.",
-      sentence:"The lamp is ____ the desk and the wall.",
-      pic:true,
-      answer:"between",
-      accept:["between"],
-      success:"Correct: between.",
-      clue:"Between = in the middle of two things."
-    },
-  ];
-
-  // ---------- STATE ----------
-  let idx = 0;
-  let score = 0;
-  let correct = 0;
-  let timer = TOTAL_TIME_SEC;
-  let timerHandle = null;
-
-  const wrongIds = new Set();
-  const wrongTopics = new Set();
-  const attempts = new Map();
-
-  let sequence = ITEMS.slice();
-  let reviewMode = false;
-
-  // ---------- DOM ----------
-  const sectionTitle = document.getElementById("sectionTitle");
-  const sectionTag = document.getElementById("sectionTag");
-  const cardArea = document.getElementById("cardArea");
-  const doneBox = document.getElementById("doneBox");
-
-  const progTxt = document.getElementById("progTxt");
-  const scoreTxt = document.getElementById("scoreTxt");
-  const timeTxt = document.getElementById("timeTxt");
-  const progBar = document.getElementById("progBar");
-
-  const taskTxt = document.getElementById("taskTxt");
-  const correctTxt = document.getElementById("correctTxt");
-  const totalTxt = document.getElementById("totalTxt");
-
-  const reviewWrongBtn = document.getElementById("reviewWrongBtn");
-  const restartBtn = document.getElementById("restartBtn");
-
-  const endMsg = document.getElementById("endMsg");
-  const reviewBox = document.getElementById("reviewBox");
-
-  // ---------- HELPERS ----------
+  // ---------- Utils ----------
   function shuffle(arr){
     const a = arr.slice();
     for (let i=a.length-1;i>0;i--){
@@ -706,22 +357,387 @@
   function escapeHtml(s){
     return String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
   }
-  function norm(s){
-    return String(s||"").trim().toLowerCase().replace(/\s+/g," ");
-  }
 
+  // ---------- ITEMS (GROUPED BY TYPE / PART) ----------
+  // Types:
+  // cloze_click = click options to fill blank
+  // matching = same meaning matching (dropdown click only)
+  // mcq = multiple choice
+  // pic_mcq = picture + mcq
+
+  const ITEMS = [
+    // =========================
+    // PART A — CLOZE (CLICK)
+    // =========================
+    { part:"A", section:"Part A — Cloze (Click to fill)", tag:"Possessives & have/has got", type:"cloze_click",
+      prompt:"Choose the best word for the blank.",
+      line:"This is ____ book.",
+      options:["my","mine","me","I"],
+      answer:"my",
+      clue:"Before a noun → my/your/his/her/our/their.",
+      success:"Correct. Before a noun → <b>my</b>."
+    },
+    { part:"A", section:"Part A — Cloze (Click to fill)", tag:"Possessives", type:"cloze_click",
+      prompt:"Choose the best word for the blank.",
+      line:"This book is ____.",
+      options:["my","mine","me","I"],
+      answer:"mine",
+      clue:"No noun after blank → mine/yours/hers/ours/theirs.",
+      success:"Correct. No noun → <b>mine</b>."
+    },
+    { part:"A", section:"Part A — Cloze (Click to fill)", tag:"Possessives", type:"cloze_click",
+      prompt:"Choose the best word for the blank.",
+      line:"Those are ____ bags.",
+      options:["their","theirs","them","they"],
+      answer:"their",
+      clue:"Before a noun → their.",
+      success:"Correct. Before a noun → <b>their</b>."
+    },
+    { part:"A", section:"Part A — Cloze (Click to fill)", tag:"Possessives", type:"cloze_click",
+      prompt:"Choose the best word for the blank.",
+      line:"Those bags are ____.",
+      options:["their","theirs","them","they"],
+      answer:"theirs",
+      clue:"No noun → theirs.",
+      success:"Correct. No noun → <b>theirs</b>."
+    },
+    { part:"A", section:"Part A — Cloze (Click to fill)", tag:"Have/has got", type:"cloze_click",
+      prompt:"Choose the best phrase (meaning = have).",
+      line:"I ____ two brothers.",
+      options:["have got","has got","am got","got"],
+      answer:"have got",
+      clue:"I/you/we/they → have got. He/she/it → has got.",
+      success:"Correct. I <b>have got</b>…"
+    },
+    { part:"A", section:"Part A — Cloze (Click to fill)", tag:"Have/has got", type:"cloze_click",
+      prompt:"Choose the best phrase (meaning = have).",
+      line:"She ____ a new pencil case.",
+      options:["has got","have got","is got","got"],
+      answer:"has got",
+      clue:"He/she/it → has got.",
+      success:"Correct. She <b>has got</b>…"
+    },
+
+    // =========================
+    // PART B — SAME MEANING (MATCHING)
+    // =========================
+    { part:"B", section:"Part B — Same meaning (Matching)", tag:"my/mine + her/hers + their/theirs", type:"matching",
+      prompt:"Match the sentences that mean the same thing.",
+      pairsA:[
+        "1) This is my bag.",
+        "2) Those are her shoes.",
+        "3) That book is his.",
+        "4) These are our tickets.",
+        "5) Those keys are mine."
+      ],
+      pairsB:[
+        "a) It’s mine.",
+        "b) They’re hers.",
+        "c) That’s his book.",
+        "d) They’re ours.",
+        "e) They’re my keys."
+      ],
+      // A index -> B letter
+      answerMap:{0:"a",1:"b",2:"c",3:"d",4:"e"},
+      clue:"Rule: my + noun / mine (no noun). her shoes / hers.",
+      success:"Nice. Same meaning = same ownership."
+    },
+
+    // =========================
+    // PART C — ’s / WHOSE / WHO’S (ALL MCQ)
+    // =========================
+    { part:"C", section:"Part C — Apostrophes & ownership", tag:"whose vs who’s", type:"mcq",
+      qtype:"Choose the correct word",
+      prompt:"Choose the correct word.",
+      sentence:"_____ pencil is this?",
+      choices:[
+        {t:"Whose", ok:true},
+        {t:"Who’s", ok:false},
+        {t:"Who", ok:false},
+        {t:"Whos", ok:false}
+      ],
+      clue:"Whose = ownership. Who’s = who is.",
+      success:"Correct. <b>Whose</b> asks about ownership."
+    },
+    { part:"C", section:"Part C — Apostrophes & ownership", tag:"’s meaning", type:"mcq",
+      qtype:"What does ’s mean?",
+      prompt:"In this sentence, what does <b>Tom’s</b> mean?",
+      sentence:"Tom’s backpack is under the chair.",
+      choices:[
+        {t:"Tom owns the backpack (possessive).", ok:true},
+        {t:"Tom is a backpack.", ok:false},
+        {t:"Tom has got (always).", ok:false},
+        {t:"Tom was.", ok:false}
+      ],
+      clue:"Name + ’s + noun → belongs to.",
+      success:"Correct. Tom’s = belonging to Tom."
+    },
+    { part:"C", section:"Part C — Apostrophes & ownership", tag:"’s meaning", type:"mcq",
+      qtype:"What does ’s mean?",
+      prompt:"In this sentence, what does <b>It’s</b> mean?",
+      sentence:"It’s on the desk.",
+      choices:[
+        {t:"It is", ok:true},
+        {t:"It has", ok:false},
+        {t:"Its (possessive adjective)", ok:false},
+        {t:"It owns", ok:false}
+      ],
+      clue:"It’s = it is. Its = belonging to it.",
+      success:"Correct. It’s = <b>It is</b>."
+    },
+    { part:"C", section:"Part C — Apostrophes & ownership", tag:"’s meaning", type:"mcq",
+      qtype:"What does ’s mean?",
+      prompt:"In this sentence, what does <b>She’s got</b> mean?",
+      sentence:"She’s got a new pencil case.",
+      choices:[
+        {t:"She has got", ok:true},
+        {t:"She is got", ok:false},
+        {t:"She was got", ok:false},
+        {t:"She owns got", ok:false}
+      ],
+      clue:"’s got = has got.",
+      success:"Correct. She’s got = <b>She has got</b>."
+    },
+
+    // =========================
+    // PART D — THERE IS/ARE (ALL MCQ)
+    // =========================
+    { part:"D", section:"Part D — There is / There are", tag:"positive", type:"mcq",
+      qtype:"Choose the correct form",
+      prompt:"Choose the correct sentence.",
+      sentence:"(One thing)",
+      choices:[
+        {t:"There is a lamp on the desk.", ok:true},
+        {t:"There are a lamp on the desk.", ok:false},
+        {t:"Is there a lamp on the desk.", ok:false},
+        {t:"There lamp is on the desk.", ok:false}
+      ],
+      clue:"Singular → there is.",
+      success:"Correct. Singular → <b>There is</b>."
+    },
+    { part:"D", section:"Part D — There is / There are", tag:"positive", type:"mcq",
+      qtype:"Choose the correct form",
+      prompt:"Choose the correct sentence.",
+      sentence:"(Two things)",
+      choices:[
+        {t:"There are two books on the chair.", ok:true},
+        {t:"There is two books on the chair.", ok:false},
+        {t:"Are there two book on the chair?", ok:false},
+        {t:"There two books are on the chair.", ok:false}
+      ],
+      clue:"Plural → there are.",
+      success:"Correct. Plural → <b>There are</b>."
+    },
+    { part:"D", section:"Part D — There is / There are", tag:"questions", type:"mcq",
+      qtype:"Question form",
+      prompt:"Choose the correct question.",
+      sentence:"(One thing)",
+      choices:[
+        {t:"Is there a computer in the classroom?", ok:true},
+        {t:"Are there a computer in the classroom?", ok:false},
+        {t:"Is it there a computer in the classroom?", ok:false},
+        {t:"Do there have a computer in the classroom?", ok:false}
+      ],
+      clue:"Singular question → Is there…?",
+      success:"Correct. <b>Is there…?</b>"
+    },
+    { part:"D", section:"Part D — There is / There are", tag:"questions", type:"mcq",
+      qtype:"Question form",
+      prompt:"Choose the correct question.",
+      sentence:"(Many things)",
+      choices:[
+        {t:"Are there any pencils on the desk?", ok:true},
+        {t:"Is there any pencils on the desk?", ok:false},
+        {t:"Are any pencils there on the desk?", ok:false},
+        {t:"Do there are any pencils on the desk?", ok:false}
+      ],
+      clue:"Plural → Are there…?",
+      success:"Correct. <b>Are there…?</b>"
+    },
+    { part:"D", section:"Part D — There is / There are", tag:"short answers", type:"mcq",
+      qtype:"Short answers (NO typing)",
+      prompt:"Choose the best short answer.",
+      sentence:"Q: Is there a computer in the classroom?",
+      choices:[
+        {t:"Yes, there is.", ok:true},
+        {t:"Yes, it is.", ok:false},
+        {t:"Yes, there are.", ok:false},
+        {t:"Yes, there isn’t.", ok:false}
+      ],
+      clue:"Short answers use THERE: Yes, there is / No, there isn’t.",
+      success:"Correct. Use <b>there</b> (not it)."
+    },
+    { part:"D", section:"Part D — There is / There are", tag:"short answers", type:"mcq",
+      qtype:"Short answers (NO typing)",
+      prompt:"Choose the best short answer.",
+      sentence:"Q: Are there any shops near your home?",
+      choices:[
+        {t:"Yes, there are.", ok:true},
+        {t:"Yes, there is.", ok:false},
+        {t:"Yes, they are.", ok:false},
+        {t:"Yes, there aren’t.", ok:false}
+      ],
+      clue:"Plural short answer: Yes, there are.",
+      success:"Correct. <b>Yes, there are.</b>"
+    },
+
+    // =========================
+    // PART E — PREPOSITIONS + FIXED EXPRESSIONS (ALL MCQ)
+    // =========================
+    { part:"E", section:"Part E — Prepositions & fixed expressions", tag:"fixed expressions", type:"mcq",
+      qtype:"Fixed expression",
+      prompt:"Choose the best phrase.",
+      sentence:"On weekdays, the children are ____.",
+      choices:[
+        {t:"at school", ok:true},
+        {t:"in school", ok:false},
+        {t:"on school", ok:false},
+        {t:"to school", ok:false}
+      ],
+      clue:"We say: at school / at home / at work.",
+      success:"Correct. <b>at school</b>."
+    },
+    { part:"E", section:"Part E — Prepositions & fixed expressions", tag:"fixed expressions", type:"mcq",
+      qtype:"Fixed expression",
+      prompt:"Choose the best phrase.",
+      sentence:"He is sick. He is ____.",
+      choices:[
+        {t:"in bed", ok:true},
+        {t:"on bed", ok:false},
+        {t:"at bed", ok:false},
+        {t:"to bed", ok:false}
+      ],
+      clue:"We say: in bed.",
+      success:"Correct. <b>in bed</b>."
+    },
+    { part:"E", section:"Part E — Prepositions & fixed expressions", tag:"fixed expressions", type:"mcq",
+      qtype:"Fixed expression",
+      prompt:"Choose the best phrase.",
+      sentence:"The supermarket is ____.",
+      choices:[
+        {t:"on the left", ok:true},
+        {t:"at the left", ok:false},
+        {t:"in the left", ok:false},
+        {t:"to the left (only)", ok:false}
+      ],
+      clue:"Common: on the left / on the right.",
+      success:"Correct. <b>on the left</b>."
+    },
+    { part:"E", section:"Part E — Prepositions & fixed expressions", tag:"corner", type:"mcq",
+      qtype:"Corner meaning",
+      prompt:"Choose the best phrase.",
+      sentence:"The chair is ____ of the room.",
+      choices:[
+        {t:"in the corner", ok:true},
+        {t:"on the corner", ok:false},
+        {t:"at the corner", ok:false},
+        {t:"under the corner", ok:false}
+      ],
+      clue:"Inside a room/space → in the corner.",
+      success:"Correct. <b>in the corner</b>."
+    },
+    { part:"E", section:"Part E — Prepositions & fixed expressions", tag:"corner", type:"mcq",
+      qtype:"Corner meaning",
+      prompt:"Choose the best phrase.",
+      sentence:"The café is ____ of King Street and Park Road.",
+      choices:[
+        {t:"on the corner", ok:true},
+        {t:"in the corner", ok:false},
+        {t:"at the corner (not best here)", ok:false},
+        {t:"between the corner", ok:false}
+      ],
+      clue:"Street intersection → on the corner.",
+      success:"Correct. <b>on the corner</b>."
+    },
+
+    // Picture-based MCQ (still click only)
+    { part:"E", section:"Part E — Prepositions & fixed expressions", tag:"picture", type:"pic_mcq",
+      qtype:"Look at the picture",
+      prompt:"Look at the picture. Choose the correct preposition.",
+      sentence:"The book is ____ the desk.",
+      pic:true,
+      choices:[
+        {t:"on", ok:true},
+        {t:"under", ok:false},
+        {t:"between", ok:false},
+        {t:"next to", ok:false}
+      ],
+      clue:"Book is on top of desk.",
+      success:"Correct: <b>on</b>."
+    },
+    { part:"E", section:"Part E — Prepositions & fixed expressions", tag:"picture", type:"pic_mcq",
+      qtype:"Look at the picture",
+      prompt:"Look at the picture. Choose the correct preposition.",
+      sentence:"The bag is ____ the chair.",
+      pic:true,
+      choices:[
+        {t:"under", ok:true},
+        {t:"on", ok:false},
+        {t:"between", ok:false},
+        {t:"in", ok:false}
+      ],
+      clue:"Bag is below the chair.",
+      success:"Correct: <b>under</b>."
+    },
+    { part:"E", section:"Part E — Prepositions & fixed expressions", tag:"picture", type:"pic_mcq",
+      qtype:"Look at the picture",
+      prompt:"Look at the picture. Choose the correct preposition.",
+      sentence:"The lamp is ____ the desk and the wall.",
+      pic:true,
+      choices:[
+        {t:"between", ok:true},
+        {t:"under", ok:false},
+        {t:"behind", ok:false},
+        {t:"next to", ok:false}
+      ],
+      clue:"Lamp is in the middle of desk + wall.",
+      success:"Correct: <b>between</b>."
+    },
+  ];
+
+  // ---------- STATE ----------
+  let idx = 0;
+  let score = 0;
+  let correct = 0;
+  let timer = TOTAL_TIME_SEC;
+  let timerHandle = null;
+
+  const wrongIds = new Set();
+  const wrongTopics = new Set();
+
+  let sequence = ITEMS.slice();
+  let reviewMode = false;
+
+  // ---------- DOM ----------
+  const sectionTitle = document.getElementById("sectionTitle");
+  const sectionTag = document.getElementById("sectionTag");
+  const cardArea = document.getElementById("cardArea");
+  const doneBox = document.getElementById("doneBox");
+
+  const partTxt = document.getElementById("partTxt");
+  const progTxt = document.getElementById("progTxt");
+  const scoreTxt = document.getElementById("scoreTxt");
+  const timeTxt = document.getElementById("timeTxt");
+  const progBar = document.getElementById("progBar");
+
+  const reviewWrongBtn = document.getElementById("reviewWrongBtn");
+  const restartBtn = document.getElementById("restartBtn");
+
+  const endMsg = document.getElementById("endMsg");
+  const reviewBox = document.getElementById("reviewBox");
+
+  // ---------- HELPERS ----------
   function setProgressUI(){
-    progTxt.textContent = `${idx+1}/${sequence.length}`;
+    const total = sequence.length;
+    progTxt.textContent = `${idx+1}/${total}`;
     scoreTxt.textContent = String(score);
-    correctTxt.textContent = String(correct);
-    totalTxt.textContent = String(sequence.length);
-    progBar.style.width = `${(idx/sequence.length)*100}%`;
-    timeTxt.textContent = reviewMode ? "Review" : formatTime(timer);
+    progBar.style.width = `${(idx/total)*100}%`;
+    if (!reviewMode) timeTxt.textContent = formatTime(timer);
   }
 
   function markWrong(item){
     wrongIds.add(item.id);
-    wrongTopics.add(`${item.section} • ${item.qtype}`);
+    wrongTopics.add(`${item.section} • ${item.tag}`);
   }
 
   function stopTimer(){
@@ -746,7 +762,6 @@
     doneBox.style.display = "block";
     sectionTitle.textContent = timeUp ? "Time’s up!" : "Finished!";
     sectionTag.textContent = timeUp ? "Stop here" : "Nice work";
-    taskTxt.textContent = timeUp ? "Time limit reached" : "Completed";
 
     const total = sequence.length;
     endMsg.innerHTML = `You got <b>${correct}</b> correct out of <b>${total}</b>.`;
@@ -756,11 +771,10 @@
     if (topics.length === 0){
       html += `<b>Review:</b> Nothing to review today. Great job.`;
     } else {
-      html += `<b>Review reminder:</b> Practice these again before written homework:`;
+      html += `<b>Review reminder:</b> Practice these again:`;
       html += `<div class="chips">` +
         topics.map(t => `<span class="chip">${escapeHtml(t)}</span>`).join("") +
         `</div>`;
-      html += `<div style="margin-top:10px;">Tip: Say 2 example sentences out loud before you write.</div>`;
     }
     reviewBox.innerHTML = html;
 
@@ -777,17 +791,93 @@
     render();
   }
 
-  // ---------- RENDERERS ----------
-  function renderMCQ(item){
+  // ---------- RENDER ----------
+  function renderClozeClick(item){
     sectionTitle.textContent = item.section;
-    sectionTag.textContent = item.qtype;
-    const id = item.id;
-    attempts.set(id, attempts.get(id) || 0);
+    sectionTag.textContent = item.tag;
+    partTxt.textContent = item.part;
 
     cardArea.innerHTML = `
-      <div class="qtype">${item.qtype}</div>
+      <div class="qtype">${item.section}</div>
+      <div class="prompt">${item.prompt}</div>
+      <div class="clozeLine">${escapeHtml(item.line).replace("____", `<span class="blank" id="blank">____</span>`)}</div>
+
+      <div class="tileRow" id="tiles"></div>
+
+      <div class="emojiRow" id="emojiRow"></div>
+      <div class="feedback" id="fb"><span class="hint">Click an answer.</span></div>
+
+      <div class="controls">
+        <button class="smallbtn secondary" id="hintBtn">Hint</button>
+        <button class="smallbtn" id="nextBtn" disabled>Next</button>
+      </div>
+    `;
+
+    const blank = document.getElementById("blank");
+    const tiles = document.getElementById("tiles");
+    const fb = document.getElementById("fb");
+    const emojiRow = document.getElementById("emojiRow");
+    const hintBtn = document.getElementById("hintBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let locked=false;
+    let tries=0;
+
+    function setSmileys(level){
+      emojiRow.textContent = level===3?"😄😄😄":level===2?"🙂🙂":"🙂";
+    }
+
+    function showClue(){
+      fb.innerHTML = `<span class="hint"><b>Clue:</b> ${item.clue}</span>`;
+    }
+
+    shuffle(item.options).forEach(opt=>{
+      const b=document.createElement("button");
+      b.className="tileBtn";
+      b.textContent=opt;
+
+      b.addEventListener("click", ()=>{
+        if(locked) return;
+        tries++;
+        blank.textContent = opt;
+
+        if(opt===item.answer){
+          locked=true;
+          b.classList.add("selected");
+          fb.innerHTML = `<span class="good"><b>Correct!</b></span> ${item.success||""}`;
+          score++; correct++;
+          setSmileys(tries===1?3:tries===2?2:1);
+          nextBtn.disabled=false;
+          [...tiles.querySelectorAll("button")].forEach(x=>x.disabled=true);
+        } else {
+          markWrong(item);
+          fb.innerHTML = `<span class="bad"><b>Not yet.</b></span> <span class="hint">${item.clue}</span>`;
+        }
+        setProgressUI();
+      });
+
+      tiles.appendChild(b);
+    });
+
+    hintBtn.addEventListener("click", ()=>{
+      markWrong(item);
+      showClue();
+      setProgressUI();
+    });
+    nextBtn.addEventListener("click", ()=>next());
+  }
+
+  function renderMCQ(item){
+    sectionTitle.textContent = item.section;
+    sectionTag.textContent = item.tag || item.qtype || "MCQ";
+    partTxt.textContent = item.part;
+
+    cardArea.innerHTML = `
+      <div class="qtype">${item.qtype || item.section}</div>
       <div class="prompt">${item.prompt}</div>
       <div class="sentence">${item.sentence || ""}</div>
+      ${item.pic ? getRoomSVG() : ""}
+
       <div class="tileRow" id="choices"></div>
 
       <div class="emojiRow" id="emojiRow"></div>
@@ -805,7 +895,9 @@
     const hintBtn = document.getElementById("hintBtn");
     const nextBtn = document.getElementById("nextBtn");
 
-    let locked = false;
+    let locked=false;
+    let tries=0;
+
     function setSmileys(level){
       emojiRow.textContent = level===3?"😄😄😄":level===2?"🙂🙂":"🙂";
     }
@@ -815,19 +907,20 @@
 
     const shuffled = shuffle(item.choices);
     shuffled.forEach(ch=>{
-      const b = document.createElement("button");
+      const b=document.createElement("button");
       b.className="tileBtn";
-      b.textContent = ch.t;
+      b.textContent=ch.t;
+
       b.addEventListener("click", ()=>{
         if(locked) return;
-        attempts.set(id,(attempts.get(id)||0)+1);
-        const a = attempts.get(id);
+        tries++;
+
         if(ch.ok){
           locked=true;
           b.classList.add("selected");
           fb.innerHTML = `<span class="good"><b>Correct!</b></span> ${item.success||""}`;
           score++; correct++;
-          setSmileys(a===1?3:a===2?2:1);
+          setSmileys(tries===1?3:tries===2?2:1);
           nextBtn.disabled=false;
           [...choicesDiv.querySelectorAll("button")].forEach(x=>x.disabled=true);
         } else {
@@ -836,190 +929,49 @@
         }
         setProgressUI();
       });
+
       choicesDiv.appendChild(b);
     });
 
     hintBtn.addEventListener("click", ()=>{
-      attempts.set(id,(attempts.get(id)||0)+1);
       markWrong(item);
       showClue();
       setProgressUI();
     });
     nextBtn.addEventListener("click", ()=>next());
-    taskTxt.textContent = item.section;
   }
 
-  function renderFormPick(item){
+  function renderMatching(item){
     sectionTitle.textContent = item.section;
-    sectionTag.textContent = item.qtype;
-    const id = item.id;
-    attempts.set(id, attempts.get(id) || 0);
+    sectionTag.textContent = item.tag;
+    partTxt.textContent = item.part;
+
+    const options = item.pairsB.map(s => {
+      // keep "a) ..." -> value "a"
+      const letter = s.trim().charAt(0);
+      return {letter, text:s};
+    });
 
     cardArea.innerHTML = `
-      <div class="qtype">${item.qtype}</div>
+      <div class="qtype">${item.section}</div>
       <div class="prompt">${item.prompt}</div>
 
-      <div class="clozeLine">${escapeHtml(item.line).replace("____", `<span class="blank" id="blank">____</span>`)}</div>
-
-      <div class="tileRow" id="tiles"></div>
-
-      <div class="emojiRow" id="emojiRow"></div>
-      <div class="feedback" id="fb"><span class="hint">Click the best form.</span></div>
-
-      <div class="controls">
-        <button class="smallbtn secondary" id="hintBtn">Hint</button>
-        <button class="smallbtn" id="nextBtn" disabled>Next</button>
-      </div>
-    `;
-
-    const blank = document.getElementById("blank");
-    const tiles = document.getElementById("tiles");
-    const fb = document.getElementById("fb");
-    const emojiRow = document.getElementById("emojiRow");
-    const hintBtn = document.getElementById("hintBtn");
-    const nextBtn = document.getElementById("nextBtn");
-
-    let locked=false;
-    function setSmileys(level){
-      emojiRow.textContent = level===3?"😄😄😄":level===2?"🙂🙂":"🙂";
-    }
-    function showClue(){
-      fb.innerHTML = `<span class="hint"><b>Clue:</b> ${item.clue}</span>`;
-    }
-
-    shuffle(item.options).forEach(opt=>{
-      const b=document.createElement("button");
-      b.className="tileBtn";
-      b.textContent=opt;
-      b.addEventListener("click", ()=>{
-        if(locked) return;
-        attempts.set(id,(attempts.get(id)||0)+1);
-        const a = attempts.get(id);
-
-        blank.textContent = opt;
-
-        if(norm(opt)===norm(item.answer)){
-          locked=true;
-          b.classList.add("selected");
-          fb.innerHTML = `<span class="good"><b>Correct!</b></span> ${item.success||""}`;
-          score++; correct++;
-          setSmileys(a===1?3:a===2?2:1);
-          nextBtn.disabled=false;
-          [...tiles.querySelectorAll("button")].forEach(x=>x.disabled=true);
-        } else {
-          markWrong(item);
-          fb.innerHTML = `<span class="bad"><b>Not yet.</b></span> <span class="hint">${item.clue}</span>`;
-        }
-        setProgressUI();
-      });
-      tiles.appendChild(b);
-    });
-
-    hintBtn.addEventListener("click", ()=>{
-      attempts.set(id,(attempts.get(id)||0)+1);
-      markWrong(item);
-      showClue();
-      setProgressUI();
-    });
-    nextBtn.addEventListener("click", ()=>next());
-    taskTxt.textContent = item.section;
-  }
-
-  function renderCloze(item){
-    sectionTitle.textContent = item.section;
-    sectionTag.textContent = item.qtype;
-    const id = item.id;
-    attempts.set(id, attempts.get(id) || 0);
-
-    cardArea.innerHTML = `
-      <div class="qtype">${item.qtype}</div>
-      <div class="prompt">${item.prompt}</div>
-      <div class="sentence">${item.sentence || ""}</div>
-
-      <div class="clozeLine">${escapeHtml(item.line).replace("____", `<span class="blank" id="blank">____</span>`)}</div>
-      <div class="tileRow" id="tiles"></div>
-
-      <div class="emojiRow" id="emojiRow"></div>
-      <div class="feedback" id="fb"><span class="hint">Click the best phrase.</span></div>
-
-      <div class="controls">
-        <button class="smallbtn secondary" id="hintBtn">Hint</button>
-        <button class="smallbtn" id="nextBtn" disabled>Next</button>
-      </div>
-    `;
-
-    const blank = document.getElementById("blank");
-    const tiles = document.getElementById("tiles");
-    const fb = document.getElementById("fb");
-    const emojiRow = document.getElementById("emojiRow");
-    const hintBtn = document.getElementById("hintBtn");
-    const nextBtn = document.getElementById("nextBtn");
-
-    let locked=false;
-    function setSmileys(level){
-      emojiRow.textContent = level===3?"😄😄😄":level===2?"🙂🙂":"🙂";
-    }
-    function showClue(){
-      fb.innerHTML = `<span class="hint"><b>Clue:</b> ${item.clue}</span>`;
-    }
-
-    shuffle(item.options).forEach(opt=>{
-      const b=document.createElement("button");
-      b.className="tileBtn";
-      b.textContent=opt;
-      b.addEventListener("click", ()=>{
-        if(locked) return;
-        attempts.set(id,(attempts.get(id)||0)+1);
-        const a = attempts.get(id);
-
-        blank.textContent = opt;
-
-        if(norm(opt)===norm(item.answer)){
-          locked=true;
-          b.classList.add("selected");
-          fb.innerHTML = `<span class="good"><b>Correct!</b></span> ${item.success||""}`;
-          score++; correct++;
-          setSmileys(a===1?3:a===2?2:1);
-          nextBtn.disabled=false;
-          [...tiles.querySelectorAll("button")].forEach(x=>x.disabled=true);
-        } else {
-          markWrong(item);
-          fb.innerHTML = `<span class="bad"><b>Not yet.</b></span> <span class="hint">${item.clue}</span>`;
-        }
-        setProgressUI();
-      });
-      tiles.appendChild(b);
-    });
-
-    hintBtn.addEventListener("click", ()=>{
-      attempts.set(id,(attempts.get(id)||0)+1);
-      markWrong(item);
-      showClue();
-      setProgressUI();
-    });
-    nextBtn.addEventListener("click", ()=>next());
-    taskTxt.textContent = item.section;
-  }
-
-  function renderTypeIn(item){
-    sectionTitle.textContent = item.section;
-    sectionTag.textContent = item.qtype;
-    const id = item.id;
-    attempts.set(id, attempts.get(id) || 0);
-
-    cardArea.innerHTML = `
-      <div class="qtype">${item.qtype}</div>
-      <div class="prompt">${item.prompt}</div>
-      <div class="sentence">${escapeHtml(item.sentence || "")}</div>
-
-      <div class="clozeLine" style="margin-top:10px;">
-        <input class="textIn" id="ans" placeholder="Type here…" autocomplete="off" />
+      <div class="twoCol">
+        <div class="matchBox" id="boxA">
+          <div class="matchTitle">A</div>
+        </div>
+        <div class="matchBox" id="boxB">
+          <div class="matchTitle">B (choices)</div>
+          <div style="color:var(--muted);font-size:12.5px;line-height:1.35">
+            ${item.pairsB.map(x=>escapeHtml(x)).join("<br/>")}
+          </div>
+        </div>
       </div>
 
-      <div class="mini">Tip: Don’t use extra words. Type only the missing word/short answer.</div>
+      <div class="smallNote">Click each dropdown and choose the matching letter.</div>
 
       <div class="emojiRow" id="emojiRow"></div>
-      <div class="feedback" id="fb"><span class="hint">Type your answer, then click <b>Check</b>.</span></div>
+      <div class="feedback" id="fb"><span class="hint">Finish all 5, then click <b>Check</b>.</span></div>
 
       <div class="controls">
         <button class="smallbtn secondary" id="hintBtn">Hint</button>
@@ -1028,7 +980,7 @@
       </div>
     `;
 
-    const ans = document.getElementById("ans");
+    const boxA = document.getElementById("boxA");
     const fb = document.getElementById("fb");
     const emojiRow = document.getElementById("emojiRow");
     const hintBtn = document.getElementById("hintBtn");
@@ -1036,6 +988,8 @@
     const nextBtn = document.getElementById("nextBtn");
 
     let locked=false;
+    let tries=0;
+
     function setSmileys(level){
       emojiRow.textContent = level===3?"😄😄😄":level===2?"🙂🙂":"🙂";
     }
@@ -1043,118 +997,70 @@
       fb.innerHTML = `<span class="hint"><b>Clue:</b> ${item.clue}</span>`;
     }
 
-    function check(){
-      if(locked) return;
-      attempts.set(id,(attempts.get(id)||0)+1);
-      const a = attempts.get(id);
+    // build rows
+    const selects = [];
+    item.pairsA.forEach((aText, i) => {
+      const row = document.createElement("div");
+      row.className = "matchItem";
+      row.innerHTML = `<b>${escapeHtml(aText)}</b>`;
+      const sel = document.createElement("select");
+      sel.className="matchSel";
+      sel.innerHTML = `
+        <option value="">Choose…</option>
+        ${options.map(o => `<option value="${o.letter}">${o.text}</option>`).join("")}
+      `;
+      row.appendChild(sel);
+      boxA.appendChild(row);
+      selects.push({sel, row, idx:i});
+    });
 
-      const user = norm(ans.value);
-      const ok = (item.accept||[]).map(norm).includes(user) || user===norm(item.answer);
-
-      if(ok){
-        locked=true;
-        fb.innerHTML = `<span class="good"><b>Correct!</b></span> ${item.success||""}`;
-        score++; correct++;
-        setSmileys(a===1?3:a===2?2:1);
-        nextBtn.disabled=false;
-        ans.disabled=true;
-        checkBtn.disabled=true;
-      } else {
-        markWrong(item);
-        fb.innerHTML = `<span class="bad"><b>Not yet.</b></span> <span class="hint">${item.clue}</span>`;
-      }
-      setProgressUI();
+    function allChosen(){
+      return selects.every(x => x.sel.value);
     }
 
-    checkBtn.addEventListener("click", check);
-    ans.addEventListener("keydown", (e)=>{ if(e.key==="Enter") check(); });
+    checkBtn.addEventListener("click", ()=>{
+      if(locked) return;
+      tries++;
+      if(!allChosen()){
+        fb.innerHTML = `<span class="bad"><b>Not yet.</b></span> Choose an answer for every line.`;
+        return;
+      }
+
+      // grade
+      let localCorrect = 0;
+      selects.forEach(x=>{
+        const need = item.answerMap[x.idx]; // like "a"
+        const got = x.sel.value;
+        x.row.classList.remove("ok","badBorder");
+        if(got === need){
+          x.row.classList.add("ok");
+          localCorrect++;
+        } else {
+          x.row.classList.add("badBorder");
+        }
+      });
+
+      if(localCorrect === selects.length){
+        locked=true;
+        fb.innerHTML = `<span class="good"><b>Correct!</b></span> ${item.success||""}`;
+        score++; correct++; // count matching as 1 item
+        setSmileys(tries===1?3:tries===2?2:1);
+        nextBtn.disabled=false;
+        checkBtn.disabled=true;
+        selects.forEach(x=>x.sel.disabled=true);
+      } else {
+        markWrong(item);
+        fb.innerHTML = `<span class="bad"><b>Not yet.</b></span> ${localCorrect}/${selects.length} correct. Fix the red ones.`;
+      }
+      setProgressUI();
+    });
 
     hintBtn.addEventListener("click", ()=>{
-      attempts.set(id,(attempts.get(id)||0)+1);
       markWrong(item);
       showClue();
       setProgressUI();
     });
     nextBtn.addEventListener("click", ()=>next());
-    taskTxt.textContent = item.section;
-  }
-
-  function renderPicType(item){
-    sectionTitle.textContent = item.section;
-    sectionTag.textContent = item.qtype;
-    const id = item.id;
-    attempts.set(id, attempts.get(id) || 0);
-
-    cardArea.innerHTML = `
-      <div class="qtype">${item.qtype}</div>
-      <div class="prompt">${item.prompt}</div>
-      <div class="sentence">${escapeHtml(item.sentence || "")}</div>
-
-      ${getRoomSVG()}
-
-      <div class="clozeLine" style="margin-top:10px;">
-        <input class="textIn" id="ans" placeholder="Type ONE word (on / under / between)..." autocomplete="off" />
-      </div>
-
-      <div class="emojiRow" id="emojiRow"></div>
-      <div class="feedback" id="fb"><span class="hint">Type your answer, then click <b>Check</b>.</span></div>
-
-      <div class="controls">
-        <button class="smallbtn secondary" id="hintBtn">Hint</button>
-        <button class="smallbtn secondary" id="checkBtn">Check</button>
-        <button class="smallbtn" id="nextBtn" disabled>Next</button>
-      </div>
-    `;
-
-    const ans = document.getElementById("ans");
-    const fb = document.getElementById("fb");
-    const emojiRow = document.getElementById("emojiRow");
-    const hintBtn = document.getElementById("hintBtn");
-    const checkBtn = document.getElementById("checkBtn");
-    const nextBtn = document.getElementById("nextBtn");
-
-    let locked=false;
-    function setSmileys(level){
-      emojiRow.textContent = level===3?"😄😄😄":level===2?"🙂🙂":"🙂";
-    }
-    function showClue(){
-      fb.innerHTML = `<span class="hint"><b>Clue:</b> ${item.clue}</span>`;
-    }
-
-    function check(){
-      if(locked) return;
-      attempts.set(id,(attempts.get(id)||0)+1);
-      const a = attempts.get(id);
-
-      const user = norm(ans.value);
-      const ok = (item.accept||[]).map(norm).includes(user) || user===norm(item.answer);
-
-      if(ok){
-        locked=true;
-        fb.innerHTML = `<span class="good"><b>Correct!</b></span> ${item.success||""}`;
-        score++; correct++;
-        setSmileys(a===1?3:a===2?2:1);
-        nextBtn.disabled=false;
-        ans.disabled=true;
-        checkBtn.disabled=true;
-      } else {
-        markWrong(item);
-        fb.innerHTML = `<span class="bad"><b>Not yet.</b></span> <span class="hint">${item.clue}</span>`;
-      }
-      setProgressUI();
-    }
-
-    checkBtn.addEventListener("click", check);
-    ans.addEventListener("keydown",(e)=>{ if(e.key==="Enter") check(); });
-
-    hintBtn.addEventListener("click", ()=>{
-      attempts.set(id,(attempts.get(id)||0)+1);
-      markWrong(item);
-      showClue();
-      setProgressUI();
-    });
-    nextBtn.addEventListener("click", ()=>next());
-    taskTxt.textContent = item.section;
   }
 
   function render(){
@@ -1166,15 +1072,34 @@
 
     setProgressUI();
 
-    if(item.type==="mcq") renderMCQ(item);
-    else if(item.type==="formpick") renderFormPick(item);
-    else if(item.type==="cloze") renderCloze(item);
-    else if(item.type==="typein") renderTypeIn(item);
-    else if(item.type==="picType") renderPicType(item);
+    if(item.type==="cloze_click") renderClozeClick(item);
+    else if(item.type==="matching") renderMatching(item);
+    else if(item.type==="mcq" || item.type==="pic_mcq") renderMCQ(item);
     else renderMCQ(item);
   }
 
-  // ---------- REVIEW MODE ----------
+  // ---------- DONE / REVIEW ----------
+  function showDone(timeUp=false){
+    cardArea.style.display = "none";
+    doneBox.style.display = "block";
+    sectionTitle.textContent = timeUp ? "Time’s up!" : "Finished!";
+    sectionTag.textContent = timeUp ? "Stop here" : "Nice work";
+    partTxt.textContent = "—";
+
+    const total = sequence.length;
+    endMsg.innerHTML = `You got <b>${correct}</b> correct out of <b>${total}</b>.`;
+
+    const topics = Array.from(wrongTopics);
+    if (topics.length === 0){
+      reviewBox.innerHTML = `<b>Review:</b> Nothing to review today. Great job.`;
+    } else {
+      reviewBox.innerHTML =
+        `<b>Review reminder:</b> Practice these again:` +
+        `<div class="chips">${topics.map(t=>`<span class="chip">${escapeHtml(t)}</span>`).join("")}</div>`;
+    }
+    progBar.style.width = `100%`;
+  }
+
   reviewWrongBtn.addEventListener("click", () => {
     const wrongList = ITEMS.filter(it => wrongIds.has(it.id));
     if (wrongList.length === 0){
@@ -1187,30 +1112,24 @@
     score = 0; correct = 0;
     stopTimer();
     timeTxt.textContent = "Review";
-    doneBox.style.display = "none";
-    cardArea.style.display = "block";
     render();
   });
 
-  // ---------- RESTART ----------
   restartBtn.addEventListener("click", () => {
     idx = 0; score = 0; correct = 0;
     timer = TOTAL_TIME_SEC;
     wrongIds.clear(); wrongTopics.clear();
-    attempts.clear();
     reviewMode = false;
     sequence = ITEMS.slice();
-    doneBox.style.display = "none";
-    cardArea.style.display = "block";
     render();
     startTimer();
   });
 
-  // ---------- INIT ----------
-  totalTxt.textContent = String(ITEMS.length);
-  render();
+  // ---------- TIMER ----------
   startTimer();
+  render();
 })();
 </script>
 </body>
 </html>
+
